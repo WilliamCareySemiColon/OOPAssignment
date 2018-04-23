@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/user/SpaceShooter/Assets/StarNestSkybox/Example 1.unity
+- path: Assets/StarNestSkybox/Example 1.unity
   isLoaded: 1
   isActive: 1
