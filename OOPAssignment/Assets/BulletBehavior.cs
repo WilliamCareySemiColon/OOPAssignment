@@ -15,6 +15,7 @@ public class BulletBehavior : MonoBehaviour {
 
     void Update()
     {
-        transform.Translate(0, 0, speed * Time.deltaTime);
+        //transform.Translate(0, speed * Time.deltaTime, 0);
+        //this.volic transform.forward * (speed * 2);
     }
 }

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public GameObject shot;
+    public Transform shotSpawn;
     public float rotationSpeed = 150f;
     public float moveSpeed = 20.0f;
-    // Use this for initialization
-
+    public float nextFire, fireRate;
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+        {
+            Fire();
+
+            //Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
 
         if (Input.GetKey(KeyCode.W) && moveSpeed < 500f)
         {
@@ -70,4 +76,21 @@ public class PlayerController : MonoBehaviour
         if (moveSpeed < 0)
             moveSpeed = 0;
     }
-}
+
+    void Fire()
+    {
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            shot,
+            shotSpawn.position,
+            shotSpawn.rotation);
+
+        bullet.transform.Rotate(90, 0, 0);
+
+        // Add velocity to the bullet
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (moveSpeed*2);
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 2.0f);
+    }
+}   
