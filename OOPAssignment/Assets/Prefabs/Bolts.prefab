@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 136712580542452780}
   m_Layer: 0
   m_Name: Bolts
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+  destroyThis: 5
   rigidbody: {fileID: 54297886614144848}
 --- !u!136 &136712580542452780
 CapsuleCollider:

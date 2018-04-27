@@ -22,37 +22,52 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //move forward faster
         if (Input.GetKey(KeyCode.W) && moveSpeed < 250f)
         {
             moveSpeed += 5;
         }
 
+        //move forward slower
         if (Input.GetKey(KeyCode.S) && moveSpeed > 0f)
         {
             moveSpeed -= 5;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            // Rotate counterclockwise
-            transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            // Rotate clockwise
-            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && moveSpeed > 0)
         {
             //move down
             transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && moveSpeed > 0)
         {
             // move up
             transform.Rotate(-rotationSpeed * Time.deltaTime, 0, 0);
         }
+
+        if (Input.GetKey(KeyCode.A) && moveSpeed == 0)
+        {
+            // Rotate counterclockwise if the ship is not moving 
+            transform.Rotate(0, (-rotationSpeed * Time.deltaTime)/8, 0);
+        }
+        if (Input.GetKey(KeyCode.D) && moveSpeed == 0)
+        {
+            // Rotate clockwise if the ship is not moving 
+            transform.Rotate(0, (rotationSpeed * Time.deltaTime)/8, 0);
+        }
+
+        if (Input.GetKey(KeyCode.A) && moveSpeed > 0)
+        {
+            // Rotate counterclockwise if the ship is moving 
+            transform.Rotate(0, (-rotationSpeed * Time.deltaTime) / 8, 45 * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.D) && moveSpeed > 0)
+        {
+            // Rotate clockwise if the ship is moving 
+            transform.Rotate(0, (rotationSpeed * Time.deltaTime) / 8, -45 * Time.deltaTime);
+        }
+
 
         if (Input.GetKey(KeyCode.Z))
         {

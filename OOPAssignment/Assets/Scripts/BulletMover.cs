@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletMover : MonoBehaviour {
 
     public float speed;
-
+    public float destroyThis;
     public Rigidbody rigidbody;
 
 	// Use this for initialization
@@ -18,6 +18,6 @@ public class BulletMover : MonoBehaviour {
 
     private void Update()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, destroyThis);
     }
 }
