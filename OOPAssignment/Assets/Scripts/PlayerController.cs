@@ -5,19 +5,33 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject shot;
+    public GameObject hazards;
     public Transform shotSpawn;
     public float rotationSpeed = 150f;
     public float moveSpeed = 10.0f;
     public float nextFire, fireRate;
+    public AudioSource audio;
+
 
     // Update is called once per frame
     void Update()
     {
+        //if we want to fire a bullet
         if ((Input.GetButton("Fire1") || Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire))
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            audio.Play();
         }
+
+        //if we want to create a asteroid
+        if (Input.GetKey(KeyCode.Return))
+        {
+            Vector3 b = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
+            
+            Instantiate(hazards, b, Quaternion.identity);
+        }
+
     }
 
     private void FixedUpdate()
@@ -46,28 +60,16 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(-rotationSpeed * Time.deltaTime, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.A) && moveSpeed == 0)
+        if (Input.GetKey(KeyCode.A))
         {
             // Rotate counterclockwise if the ship is not moving 
             transform.Rotate(0, (-rotationSpeed * Time.deltaTime)/8, 0);
         }
-        if (Input.GetKey(KeyCode.D) && moveSpeed == 0)
+        if (Input.GetKey(KeyCode.D))
         {
             // Rotate clockwise if the ship is not moving 
             transform.Rotate(0, (rotationSpeed * Time.deltaTime)/8, 0);
         }
-
-        if (Input.GetKey(KeyCode.A) && moveSpeed > 0)
-        {
-            // Rotate counterclockwise if the ship is moving 
-            transform.Rotate(0, (-rotationSpeed * Time.deltaTime) / 8, 45 * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D) && moveSpeed > 0)
-        {
-            // Rotate clockwise if the ship is moving 
-            transform.Rotate(0, (rotationSpeed * Time.deltaTime) / 8, -45 * Time.deltaTime);
-        }
-
 
         if (Input.GetKey(KeyCode.Z))
         {
