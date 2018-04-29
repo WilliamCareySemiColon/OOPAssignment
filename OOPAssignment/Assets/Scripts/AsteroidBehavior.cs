@@ -13,8 +13,14 @@ public class AsteroidBehavior : MonoBehaviour {
         //All the rigidbody physics
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.angularVelocity = Random.insideUnitSphere * tumble;
+        rigidbody.velocity = transform.forward * tumble;
         //all the local object this script is attached to
         transform.localScale = new Vector3(x = Random.Range(1, 4), x, x);
         transform.Rotate(new Vector3(Random.Range(0, 359), Random.Range(0, 359), Random.Range(0, 359)));
+    }
+
+    private void LateUpdate()
+    {
+        rigidbody.velocity = transform.forward * tumble;
     }
 }

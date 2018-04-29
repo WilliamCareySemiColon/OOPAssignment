@@ -27,9 +27,7 @@ public class PlayerController : MonoBehaviour
 
         //if we want to create a asteroid
         if (Input.GetKey(KeyCode.Return))
-        {
-            //Vector3 b = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
-            
+        {     
             Instantiate(hazards, asteroidSpawn.position, asteroidSpawn.rotation);
         }
 
