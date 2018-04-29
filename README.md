@@ -14,5 +14,9 @@ Assignment to be demoed on the 25/04/2018
 [Space shooters - built in 2D landscape](https://unity3d.com/learn/tutorials/s/space-shooter-tutorial)
 
 ### Controls
-**Note that the ship moves aotumatically when te programme is running**
+**Note that the ship moves aotumatically when the programme is running**
 >**Q** makes you move up while **E** makes you move down
+>**A** makes you move left while **D** makes you move right
+>**Z** makes you spin left while **X** makes you spin right
+>**W** increases your speed while **S** decreases your speed
+>**Space Bar** or **Right click of mouse** allows you to shoot
