@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public GameObject hazards;
     public Transform shotSpawn;
+    public Transform asteroidSpawn;
     public float rotationSpeed = 150f;
     public float moveSpeed = 10.0f;
     public float nextFire, fireRate;
@@ -27,9 +28,9 @@ public class PlayerController : MonoBehaviour
         //if we want to create a asteroid
         if (Input.GetKey(KeyCode.Return))
         {
-            Vector3 b = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
+            //Vector3 b = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
             
-            Instantiate(hazards, b, Quaternion.identity);
+            Instantiate(hazards, asteroidSpawn.position, asteroidSpawn.rotation);
         }
 
     }
