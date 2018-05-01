@@ -23,3 +23,4 @@ Assignment to be demoed on the 25/04/2018
 >**W** increases your speed while **S** decreases your speed
 
 **Space Bar** or **Right click of mouse** allows you to shoot
+>By pressing the **Enter** key, a asteroid spawns in front of you
