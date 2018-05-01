@@ -26,4 +26,4 @@ Assignment to be demoed on the 25/04/2018
 >By pressing the **Enter** key, a asteroid spawns in front of you
 
 ###Youtube
-[![YouTube](https://www.youtube.com/watch?v=Sfo_O9aujiI.jpg)](https://youtu.be/Sfo_O9aujiI)
+[![YouTube](https://youtu.be/Sfo_O9aujiI.jpg)](https://youtu.be/Sfo_O9aujiI)
